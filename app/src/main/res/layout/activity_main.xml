@@ -13,10 +13,13 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:focusedByDefault="true"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:singleLine="true"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,6 +34,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -45,6 +49,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -59,6 +64,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -73,6 +79,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -87,6 +94,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -101,6 +109,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -115,6 +124,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -129,6 +139,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -143,6 +154,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -157,6 +169,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -171,6 +184,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -185,6 +199,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -199,6 +214,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -213,6 +229,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -227,6 +244,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -241,6 +259,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -255,6 +274,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -269,6 +289,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -283,6 +304,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -297,6 +319,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -311,6 +334,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -326,7 +350,8 @@
         android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1"
-        android:maxLength="1" />
+        android:maxLength="1"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/edittext_line2_3"
@@ -339,6 +364,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -353,6 +379,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -367,6 +394,7 @@
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -377,10 +405,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:nextFocusRight="@id/edittext_line1_3"
+        android:singleLine="true"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_1"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -391,10 +423,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:nextFocusRight="@id/edittext_line1_4"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -405,10 +440,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:nextFocusRight="@id/edittext_line1_5"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -419,10 +457,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:maxLength="1"
         android:maxLines="1"
+        android:nextFocusRight="@id/edittext_line2_1"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_4"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
