@@ -21,9 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         getAllTextBoxes()
-
         setTextChangedListener(GUESSBOXES)
     }
 
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         boxes.forEachIndexed { index, editText ->
             editText.addTextChangedListener {
                 if (editText.text.toString().trim().length == 1) {
-                    if ((index + 1) <= boxes.size) {
+                    if ((index + 1) < boxes.size) {
                         boxes[index + 1].requestFocus()
                     }
                 }
