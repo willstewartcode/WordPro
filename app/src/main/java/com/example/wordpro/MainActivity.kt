@@ -19,6 +19,8 @@ val GUESSBOXES = mutableListOf<EditText>()
 val currentLine = 1
 // Word list - pulled from file
 val WORDLIST = mutableListOf<String>()
+// random word chosen from list
+var randomWord = ""
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -35,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             WORDLIST.add(word)
         }
         Log.i("STATUS_WORDLIST", WORDLIST.toString())
+
+        // Gets random word from list
+        randomWord = WORDLIST.random()
+        Log.i("STATUS_RANDOM_WORD", "Random word: $randomWord")
 
         getAllTextBoxes() // loads all edit texts into list
         setTextChangedListener(GUESSBOXES)
@@ -135,21 +141,18 @@ class MainActivity : AppCompatActivity() {
             }
             if (sb.length == 5) {
                 guessedWord = sb.toString()
-                compareWords(guessedWord)
+                val isInList = checkWordList(guessedWord)
             }
         }
 
-        fun compareWords(guessedWord : String) {
+        fun checkWordList(guessedWord : String) : Boolean {
             var isInList : Boolean = false
             for (word in WORDLIST) {
                 if (word == guessedWord) {
                     isInList = true
                 }
             }
-
-            if (isInList) {
-
-            }
+            return isInList
         }
     }
 }
