@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
         Log.i("STATUS_WORDLIST", WORDLIST.toString())
 
-        getAllTextBoxes()
+        getAllTextBoxes() // loads all edit texts into list
         setTextChangedListener(GUESSBOXES)
 
         // Disables edit texts in all but the first line
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
                 editText.isFocusable = false
             }
         }
+
+        binding.checkButton.setOnClickListener(CheckButtonListener())
     }
 
     // Sets focus to next edit text once a letter is entered in one
@@ -72,5 +75,47 @@ class MainActivity : AppCompatActivity() {
                                 binding.edittextLine63, binding.edittextLine64, binding.edittextLine65
                                 )
         )
+    }
+
+    inner class CheckButtonListener : View.OnClickListener {
+        override fun onClick(v: View?) {
+            // Gets only the edit texts from the currently active line
+            val currentLineBoxes = mutableListOf<EditText>()
+            GUESSBOXES.forEachIndexed { index, editText ->
+                when (currentLine) {
+                    1 -> {
+                        if (index in 0..4) {
+                            currentLineBoxes.add(editText)
+                        }
+                    }
+                    2 -> {
+                        if (index in 5..9) {
+                            currentLineBoxes.add(editText)
+                        }
+                    }
+                    3 -> {
+                        if (index in 10..14) {
+                            currentLineBoxes.add(editText)
+                        }
+                    }
+                    4 -> {
+                        if (index in 15..19) {
+                            currentLineBoxes.add(editText)
+                        }
+                    }
+                    5 -> {
+                        if (index in 20..24) {
+                            currentLineBoxes.add(editText)
+                        }
+                    }
+                    6 -> {
+                        if (index in 25..29) {
+                            currentLineBoxes.add(editText)
+                        }
+                    }
+                }
+            }
+            Log.i("STATUS_CHECK", currentLineBoxes.toString())
+        }
     }
 }
