@@ -142,11 +142,20 @@ class MainActivity : AppCompatActivity() {
             if (sb.length == 5) {
                 guessedWord = sb.toString()
                 val isInList = checkWordList(guessedWord)
+                if (!isInList) {
+                    Toast.makeText(
+                        applicationContext,
+                        R.string.invalid_word,
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+
+                }
             }
         }
 
         fun checkWordList(guessedWord : String) : Boolean {
-            var isInList : Boolean = false
+            var isInList = false
             for (word in WORDLIST) {
                 if (word == guessedWord) {
                     isInList = true
