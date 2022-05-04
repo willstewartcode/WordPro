@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import com.example.wordpro.databinding.ActivityMainBinding
@@ -116,6 +117,39 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             Log.i("STATUS_CHECK", currentLineBoxes.toString())
+
+            // Gets the input from the user
+            val sb = StringBuilder()
+            var guessedWord = ""
+            for (editText in currentLineBoxes) {
+                val input = editText.getText().toString().trim().lowercase(Locale.getDefault())
+                if (input.isEmpty()) {
+                    Toast.makeText(
+                        applicationContext,
+                        R.string.empty_field,
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    sb.append(input)
+                }
+            }
+            if (sb.length == 5) {
+                guessedWord = sb.toString()
+                compareWords(guessedWord)
+            }
+        }
+
+        fun compareWords(guessedWord : String) {
+            var isInList : Boolean = false
+            for (word in WORDLIST) {
+                if (word == guessedWord) {
+                    isInList = true
+                }
+            }
+
+            if (isInList) {
+
+            }
         }
     }
 }
