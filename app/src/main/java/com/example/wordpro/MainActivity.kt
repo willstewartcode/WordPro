@@ -4,15 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import com.example.wordpro.databinding.ActivityMainBinding
+import java.util.*
 
 // Array that holds all of the edit texts that users put guesses into
 val GUESSBOXES = mutableListOf<EditText>()
 // Keeps track of current guess the user is on
 val currentLine = 1
+// Word list - pulled from file
+val WORDLIST = mutableListOf<String>()
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -20,6 +24,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Loads words from file
+        val input = getAssets().open("word_list.txt")
+        val scanner = Scanner(input)
+        while(scanner.hasNextLine()) {
+            val word = scanner.nextLine()
+            WORDLIST.add(word)
+        }
+        Log.i("STATUS_WORDLIST", WORDLIST.toString())
 
         getAllTextBoxes()
         setTextChangedListener(GUESSBOXES)
