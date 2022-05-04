@@ -23,6 +23,13 @@ class MainActivity : AppCompatActivity() {
 
         getAllTextBoxes()
         setTextChangedListener(GUESSBOXES)
+
+        // Disables edit texts in all but the first line
+        GUESSBOXES.forEachIndexed { index, editText ->
+            if (index >= 5) {
+                editText.isFocusable = false
+            }
+        }
     }
 
     // Sets focus to next edit text once a letter is entered in one
