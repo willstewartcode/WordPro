@@ -1,5 +1,6 @@
 package com.example.wordpro
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -16,7 +17,7 @@ import java.util.*
 // Array that holds all of the edit texts that users put guesses into
 val GUESSBOXES = mutableListOf<EditText>()
 // Keeps track of current guess the user is on
-val currentLine = 1
+var currentLine = 1
 // Word list - pulled from file
 val WORDLIST = mutableListOf<String>()
 // random word chosen from list
@@ -139,6 +140,7 @@ class MainActivity : AppCompatActivity() {
                     sb.append(input)
                 }
             }
+
             if (sb.length == 5) {
                 guessedWord = sb.toString()
                 val isInList = checkWordList(guessedWord)
@@ -149,11 +151,14 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
-
+                    compareWords(guessedWord, currentLineBoxes)
                 }
+                currentLine++
+                moveToNextLine()
             }
         }
 
+        // Checks if guessed word is a word in the list
         fun checkWordList(guessedWord : String) : Boolean {
             var isInList = false
             for (word in WORDLIST) {
@@ -162,6 +167,26 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             return isInList
+        }
+
+        // Compares guessed word with the correct answer
+        fun compareWords(guessedWord: String, currentLineBoxes : MutableList<EditText>) {
+//            for (editText in currentLineBoxes) {
+//                editText.setBackgroundColor(Color.WHITE)
+//            }
+            guessedWord.forEachIndexed { index, char ->
+                if (char == randomWord[0] || char == randomWord[1] || char == randomWord[2]
+                    || char == randomWord[3] || char == randomWord[4]) {
+                    currentLineBoxes[index].setBackgroundColor(Color.YELLOW)
+                }
+                if (char == randomWord[index]) {
+                    currentLineBoxes[index].setBackgroundColor(Color.GREEN)
+                }
+            }
+        }
+
+        fun moveToNextLine() {
+
         }
     }
 }
