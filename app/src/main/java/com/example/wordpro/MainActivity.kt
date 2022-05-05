@@ -253,28 +253,34 @@ class MainActivity : AppCompatActivity() {
 
         private fun moveToNextLine() {
             Log.i("STATUS_LINE", "Current line: $currentLine")
-//            GUESSBOXES.forEachIndexed { index, editText ->
-//                when (currentLine) {
-//                    1 -> {
-//                        GUESSBOXES[index].isFocusable = index in 0..4
-//                    }
-//                    2 -> {
-//                        GUESSBOXES[index].isFocusable = index in 5..9
-//                    }
-//                    3 -> {
-//                        GUESSBOXES[index].isFocusable = index in 10..14
-//                    }
-//                    4 -> {
-//                        GUESSBOXES[index].isFocusable = index in 15..19
-//                    }
-//                    5 -> {
-//                        GUESSBOXES[index].isFocusable = index in 20..24
-//                    }
-//                    6 -> {
-//                        GUESSBOXES[index].isFocusable = index in 25..29
-//                    }
-//                }
-//            }
+            GUESSBOXES.forEachIndexed { index, editText ->
+                when (currentLine) {
+                    1 -> {
+                        GUESSBOXES[index].isFocusable = index in 0..4
+                        GUESSBOXES[index].isFocusableInTouchMode = index in 0..4
+                    }
+                    2 -> {
+                        GUESSBOXES[index].isFocusable = index in 5..9
+                        GUESSBOXES[index].isFocusableInTouchMode = index in 5..9
+                    }
+                    3 -> {
+                        GUESSBOXES[index].isFocusable = index in 10..14
+                        GUESSBOXES[index].isFocusableInTouchMode = index in 10..14
+                    }
+                    4 -> {
+                        GUESSBOXES[index].isFocusable = index in 15..19
+                        GUESSBOXES[index].isFocusableInTouchMode = index in 15..19
+                    }
+                    5 -> {
+                        GUESSBOXES[index].isFocusable = index in 20..24
+                        GUESSBOXES[index].isFocusableInTouchMode = index in 20..24
+                    }
+                    6 -> {
+                        GUESSBOXES[index].isFocusable = index in 25..29
+                        GUESSBOXES[index].isFocusableInTouchMode = index in 25..29
+                    }
+                }
+            }
         }
     }
 
