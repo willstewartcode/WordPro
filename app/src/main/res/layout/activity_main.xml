@@ -23,6 +23,7 @@
         android:maxLines="1"
         android:singleLine="true"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,6 +42,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -59,6 +61,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -77,6 +80,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -95,6 +99,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -113,6 +118,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -131,6 +137,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -149,6 +156,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -167,6 +175,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -185,6 +194,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line6_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line5_1" />
 
@@ -203,6 +213,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -221,6 +232,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -239,6 +251,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -257,6 +270,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line5_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line4_1" />
 
@@ -275,6 +289,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -293,6 +308,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -311,6 +327,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -329,6 +346,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line4_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line3_1" />
 
@@ -347,6 +365,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -365,6 +384,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -383,6 +403,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -401,6 +422,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line3_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line2_1" />
 
@@ -419,6 +441,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -437,6 +460,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_2"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -455,6 +479,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_3"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -473,6 +498,7 @@
         android:maxLength="1"
         android:maxLines="1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line2_4"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line1_1" />
 
@@ -494,6 +520,7 @@
         android:nextFocusRight="@id/edittext_line1_3"
         android:singleLine="true"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_1"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -514,6 +541,7 @@
         android:maxLines="1"
         android:nextFocusRight="@id/edittext_line1_4"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -534,6 +562,7 @@
         android:maxLines="1"
         android:nextFocusRight="@id/edittext_line1_5"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -554,6 +583,7 @@
         android:maxLines="1"
         android:nextFocusRight="@id/edittext_line2_1"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/edittext_line1_4"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -563,6 +593,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/check"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/edittext_line6_5"
         app:layout_constraintStart_toStartOf="@+id/edittext_line6_1"
         app:layout_constraintTop_toBottomOf="@+id/edittext_line6_3" />

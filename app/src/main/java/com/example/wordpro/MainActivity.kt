@@ -1,5 +1,6 @@
 package com.example.wordpro
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +8,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
@@ -58,6 +61,45 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.checkButton.setOnClickListener(CheckButtonListener())
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val preferences = getSharedPreferences(
+            getString(R.string.preferences_storage_name),
+            Context.MODE_PRIVATE
+        )
+
+        val useLargeText = preferences.getBoolean(getString(R.string.text_size_key), false)
+        val useAlternativeColors = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
+
+        if (useLargeText) {
+            setTextSize(24f)
+        } else {
+            setTextSize(16f)
+        }
+    }
+
+    // Changes text size based on preference
+    private fun setTextSize(textSize : Float) {
+        // All widgets with text
+        val widgets = listOf<TextView>(
+            binding.edittextLine11, binding.edittextLine12, binding.edittextLine13,
+            binding.edittextLine14, binding.edittextLine15, binding.edittextLine21,
+            binding.edittextLine22, binding.edittextLine23, binding.edittextLine24,
+            binding.edittextLine25, binding.edittextLine31, binding.edittextLine32,
+            binding.edittextLine33, binding.edittextLine34, binding.edittextLine35,
+            binding.edittextLine41, binding.edittextLine42, binding.edittextLine43,
+            binding.edittextLine44, binding.edittextLine45, binding.edittextLine51,
+            binding.edittextLine52, binding.edittextLine53, binding.edittextLine54,
+            binding.edittextLine55, binding.edittextLine61, binding.edittextLine62,
+            binding.edittextLine63, binding.edittextLine64, binding.edittextLine65,
+            binding.checkButton
+        )
+        for (widget in widgets) {
+            widget.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+        }
     }
 
     // Sets focus to next edit text once a letter is entered in one

@@ -23,11 +23,11 @@ class PreferencesActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeL
         )
 
         // Updates checkbox widgets to reflect preferences
-        val textSize = preferences.getBoolean(getString(R.string.text_size_key), false)
-        binding.largetextCheckbox.isChecked = textSize
+        val useLargeText = preferences.getBoolean(getString(R.string.text_size_key), false)
+        binding.largetextCheckbox.isChecked = useLargeText
 
-        val colorChoice = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
-        binding.useAlternativeColorsCheckbox.isChecked = colorChoice
+        val useAlternativeColors = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
+        binding.useAlternativeColorsCheckbox.isChecked = useAlternativeColors
 
         super.onStart()
     }
