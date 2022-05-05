@@ -8,10 +8,13 @@
 
     <EditText
         android:id="@+id/edittext_line1_1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/edit_text_border"
+        android:digits="@string/english_alphabet"
         android:ems="10"
         android:focusedByDefault="true"
         android:importantForAutofill="no"
@@ -21,15 +24,16 @@
         android:singleLine="true"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:digits="@string/english_alphabet" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edittext_line2_1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -42,10 +46,12 @@
 
     <EditText
         android:id="@+id/edittext_line3_1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -58,10 +64,12 @@
 
     <EditText
         android:id="@+id/edittext_line4_1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -74,10 +82,12 @@
 
     <EditText
         android:id="@+id/edittext_line5_1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -90,10 +100,12 @@
 
     <EditText
         android:id="@+id/edittext_line6_1"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -106,10 +118,12 @@
 
     <EditText
         android:id="@+id/edittext_line6_2"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -122,10 +136,12 @@
 
     <EditText
         android:id="@+id/edittext_line6_3"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -138,10 +154,12 @@
 
     <EditText
         android:id="@+id/edittext_line6_4"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -154,10 +172,12 @@
 
     <EditText
         android:id="@+id/edittext_line6_5"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -170,10 +190,12 @@
 
     <EditText
         android:id="@+id/edittext_line5_2"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -186,10 +208,12 @@
 
     <EditText
         android:id="@+id/edittext_line5_3"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -202,10 +226,12 @@
 
     <EditText
         android:id="@+id/edittext_line5_4"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -218,10 +244,12 @@
 
     <EditText
         android:id="@+id/edittext_line5_5"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -234,10 +262,12 @@
 
     <EditText
         android:id="@+id/edittext_line4_2"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -250,10 +280,12 @@
 
     <EditText
         android:id="@+id/edittext_line4_3"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -266,10 +298,12 @@
 
     <EditText
         android:id="@+id/edittext_line4_4"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -282,10 +316,12 @@
 
     <EditText
         android:id="@+id/edittext_line4_5"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -298,10 +334,12 @@
 
     <EditText
         android:id="@+id/edittext_line3_2"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -314,10 +352,12 @@
 
     <EditText
         android:id="@+id/edittext_line3_3"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -330,10 +370,12 @@
 
     <EditText
         android:id="@+id/edittext_line3_4"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -346,10 +388,12 @@
 
     <EditText
         android:id="@+id/edittext_line3_5"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -362,10 +406,12 @@
 
     <EditText
         android:id="@+id/edittext_line2_2"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -378,10 +424,12 @@
 
     <EditText
         android:id="@+id/edittext_line2_3"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -394,10 +442,12 @@
 
     <EditText
         android:id="@+id/edittext_line2_4"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -410,10 +460,12 @@
 
     <EditText
         android:id="@+id/edittext_line2_5"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:importantForAutofill="no"
@@ -426,10 +478,12 @@
 
     <EditText
         android:id="@+id/edittext_line1_2"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:imeOptions="actionNext"
@@ -445,10 +499,12 @@
 
     <EditText
         android:id="@+id/edittext_line1_3"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:imeOptions="actionNext"
@@ -463,10 +519,12 @@
 
     <EditText
         android:id="@+id/edittext_line1_4"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:imeOptions="actionNext"
@@ -481,10 +539,12 @@
 
     <EditText
         android:id="@+id/edittext_line1_5"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/edit_text_border"
         android:digits="@string/english_alphabet"
         android:ems="10"
         android:imeOptions="actionNext"
