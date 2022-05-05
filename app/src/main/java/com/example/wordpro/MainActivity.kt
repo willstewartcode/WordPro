@@ -1,13 +1,11 @@
 package com.example.wordpro
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
@@ -17,8 +15,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
 import com.example.wordpro.databinding.ActivityMainBinding
 import java.util.*
 
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Loads words from file
-        val input = getAssets().open("word_list.txt")
+        val input = assets.open("word_list.txt")
         val scanner = Scanner(input)
         while(scanner.hasNextLine()) {
             val word = scanner.nextLine()
@@ -92,11 +90,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (useAlternativeColors) {
-            partialGuess = getDrawable(R.drawable.edit_text_bg_blue)!!
-            correctGuess = getDrawable(R.drawable.edit_text_bg_orange)!!
+            //partialGuess = getDrawable(R.drawable.edit_text_bg_blue)!!
+            partialGuess = AppCompatResources.getDrawable(applicationContext, R.drawable.edit_text_bg_blue)!!
+            correctGuess = AppCompatResources.getDrawable(applicationContext, R.drawable.edit_text_bg_orange)!!
         } else {
-            partialGuess = getDrawable(R.drawable.edit_text_bg_yellow)!!
-            correctGuess = getDrawable(R.drawable.edit_text_bg_green)!!
+            partialGuess = AppCompatResources.getDrawable(applicationContext, R.drawable.edit_text_bg_yellow)!!
+            correctGuess = AppCompatResources.getDrawable(applicationContext, R.drawable.edit_text_bg_green)!!
         }
 
         setColorScheme(partialGuess, correctGuess)
@@ -105,7 +104,7 @@ class MainActivity : AppCompatActivity() {
     // Changes text size based on preference
     private fun setTextSize(textSize : Float) {
         // All widgets with text
-        val widgets = listOf<TextView>(
+        val widgets = listOf(
             binding.edittextLine11, binding.edittextLine12, binding.edittextLine13,
             binding.edittextLine14, binding.edittextLine15, binding.edittextLine21,
             binding.edittextLine22, binding.edittextLine23, binding.edittextLine24,
@@ -153,7 +152,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Adds all text boxes to a list
-    fun getAllTextBoxes() {
+    private fun getAllTextBoxes() {
         GUESSBOXES.addAll(listOf(binding.edittextLine11, binding.edittextLine12, binding.edittextLine13,
                                 binding.edittextLine14, binding.edittextLine15, binding.edittextLine21,
                                 binding.edittextLine22, binding.edittextLine23, binding.edittextLine24,
@@ -234,12 +233,19 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
-                    compareWords(guessedWord, currentLineBoxes)
-                    currentLine++
-                    binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
-                    moveToNextLine()
+                    val correctLetters = compareWords(guessedWord, currentLineBoxes)
+                    if (correctLetters == 5) {
+                        for (editText in currentLineBoxes) {
+                            editText.isFocusable = false
+                            editText.isFocusableInTouchMode = false
+                        }
+                        displayWinMessage()
+                    } else {
+                        currentLine++
+                        binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
+                        moveToNextLine()
+                    }
                 }
-
             }
         }
 
@@ -253,35 +259,35 @@ class MainActivity : AppCompatActivity() {
             }
             return isInList
         }
+    }
 
-        private fun moveToNextLine() {
-            Log.i("STATUS_LINE", "Current line: $currentLine")
-            GUESSBOXES.forEachIndexed { index, editText ->
-                when (currentLine) {
-                    1 -> {
-                        GUESSBOXES[index].isFocusable = index in 0..4
-                        GUESSBOXES[index].isFocusableInTouchMode = index in 0..4
-                    }
-                    2 -> {
-                        GUESSBOXES[index].isFocusable = index in 5..9
-                        GUESSBOXES[index].isFocusableInTouchMode = index in 5..9
-                    }
-                    3 -> {
-                        GUESSBOXES[index].isFocusable = index in 10..14
-                        GUESSBOXES[index].isFocusableInTouchMode = index in 10..14
-                    }
-                    4 -> {
-                        GUESSBOXES[index].isFocusable = index in 15..19
-                        GUESSBOXES[index].isFocusableInTouchMode = index in 15..19
-                    }
-                    5 -> {
-                        GUESSBOXES[index].isFocusable = index in 20..24
-                        GUESSBOXES[index].isFocusableInTouchMode = index in 20..24
-                    }
-                    6 -> {
-                        GUESSBOXES[index].isFocusable = index in 25..29
-                        GUESSBOXES[index].isFocusableInTouchMode = index in 25..29
-                    }
+    private fun moveToNextLine() {
+        Log.i("STATUS_LINE", "Current line: $currentLine")
+        GUESSBOXES.forEachIndexed { index, editText ->
+            when (currentLine) {
+                1 -> {
+                    GUESSBOXES[index].isFocusable = index in 0..4
+                    GUESSBOXES[index].isFocusableInTouchMode = index in 0..4
+                }
+                2 -> {
+                    GUESSBOXES[index].isFocusable = index in 5..9
+                    GUESSBOXES[index].isFocusableInTouchMode = index in 5..9
+                }
+                3 -> {
+                    GUESSBOXES[index].isFocusable = index in 10..14
+                    GUESSBOXES[index].isFocusableInTouchMode = index in 10..14
+                }
+                4 -> {
+                    GUESSBOXES[index].isFocusable = index in 15..19
+                    GUESSBOXES[index].isFocusableInTouchMode = index in 15..19
+                }
+                5 -> {
+                    GUESSBOXES[index].isFocusable = index in 20..24
+                    GUESSBOXES[index].isFocusableInTouchMode = index in 20..24
+                }
+                6 -> {
+                    GUESSBOXES[index].isFocusable = index in 25..29
+                    GUESSBOXES[index].isFocusableInTouchMode = index in 25..29
                 }
             }
         }
@@ -291,7 +297,8 @@ class MainActivity : AppCompatActivity() {
       Compares guessed letters to the letters in the correct word.
       Background of edit text changes based on guess result.
     */
-    fun compareWords(guessedWord: String, currentLineBoxes : MutableList<EditText>) {
+    fun compareWords(guessedWord: String, currentLineBoxes : MutableList<EditText>): Int {
+        var correctLetters = 0
         guessedWord.forEachIndexed { index, char ->
             // partial guess - letter is in word but not in correct position
             // yellow or blue background, depending on preference
@@ -307,8 +314,36 @@ class MainActivity : AppCompatActivity() {
             // green or orange background, depending on preference
             if (char == randomWord[index]) {
                 currentLineBoxes[index].background = correctGuess
+                correctLetters++
             }
         }
+        return correctLetters
+    }
+
+    fun displayWinMessage() {
+        val listener = DialogInterface.OnClickListener { dialog, which ->
+            if (which == DialogInterface.BUTTON_POSITIVE) {
+                resetGame()
+            }
+        }
+
+        val builder = AlertDialog.Builder(binding.root.context)
+        builder
+            .setTitle("Win")
+            .setMessage("win message")
+            .setPositiveButton(android.R.string.ok, listener)
+            .show()
+    }
+
+    private fun resetGame() {
+        for (editText in GUESSBOXES) {
+            editText.text.clear()
+            editText.background = getDrawable(R.drawable.edit_text_border)
+        }
+        currentLine = 1
+        randomWord = WORDLIST.random()
+        Log.i("STATUS_RANDOM_WORD", "Random word: $randomWord")
+        moveToNextLine()
     }
 
     // Options menu
