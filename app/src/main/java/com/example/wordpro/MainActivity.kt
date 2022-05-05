@@ -62,8 +62,11 @@ class MainActivity : AppCompatActivity() {
         GUESSBOXES.forEachIndexed { index, editText ->
             if (index >= 5) {
                 editText.isFocusable = false
+                editText.isFocusableInTouchMode = false
             }
         }
+        // Sets initial focus to first text box
+        GUESSBOXES[0].requestFocus()
 
         binding.checkButton.setOnClickListener(CheckButtonListener())
 
