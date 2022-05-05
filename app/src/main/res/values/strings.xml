@@ -13,4 +13,9 @@
     </string>
     <string name="use_large_text">Use Large Text</string>
     <string name="use_alternative_colors">Use Alternative Colors</string>
+
+    <!-- Preferences keys -->
+    <string name="preferences_storage_name">app_preferences</string>
+    <string name="text_size_key">text size</string>
+    <string name="alternative_colors_key">alternative colors</string>
 </resources>
