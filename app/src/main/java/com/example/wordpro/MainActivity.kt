@@ -30,15 +30,17 @@ var currentLine = 1
 val WORDLIST = mutableListOf<String>()
 // random word chosen from list
 var randomWord = ""
-//
-var useAlternativeColors : Boolean = false
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    //
+    private lateinit var partialGuess: Drawable
+    private lateinit var correctGuess: Drawable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         // Loads words from file
         val input = getAssets().open("word_list.txt")
@@ -64,6 +66,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.checkButton.setOnClickListener(CheckButtonListener())
+
+        Log.i("STATUS_LINE", "Current line: $currentLine")
     }
 
     override fun onStart() {
@@ -75,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val useLargeText = preferences.getBoolean(getString(R.string.text_size_key), false)
-        useAlternativeColors = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
+        val useAlternativeColors = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
 
         if (useLargeText) {
             setTextSize(24f)
@@ -84,10 +88,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (useAlternativeColors) {
-            setColorScheme(getDrawable(R.drawable.edit_text_bg_blue), getDrawable(R.drawable.edit_text_bg_orange))
+            partialGuess = getDrawable(R.drawable.edit_text_bg_blue)!!
+            correctGuess = getDrawable(R.drawable.edit_text_bg_orange)!!
         } else {
-            setColorScheme(getDrawable(R.drawable.edit_text_bg_yellow), getDrawable(R.drawable.edit_text_bg_green))
+            partialGuess = getDrawable(R.drawable.edit_text_bg_yellow)!!
+            correctGuess = getDrawable(R.drawable.edit_text_bg_green)!!
         }
+
+        setColorScheme(partialGuess, correctGuess)
     }
 
     // Changes text size based on preference
@@ -111,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setColorScheme(partialGuess : Drawable?, correctGuess : Drawable?) {
+    private fun setColorScheme(partialGuess : Drawable, correctGuess : Drawable) {
         for (editText in GUESSBOXES) {
             if (editText.background == getDrawable(R.drawable.edit_text_bg_yellow)
                 || editText.background == getDrawable(R.drawable.edit_text_bg_blue)) {
@@ -123,7 +131,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Sets focus to next edit text once a letter is entered in one
+    /*
+     Changes which edit text is in focus based on contents.
+     When a letter is entered, the subsequent edit text is put in focus.
+    */
+
     fun setTextChangedListener(boxes : MutableList<EditText>) {
         boxes.forEachIndexed { index, editText ->
             editText.addTextChangedListener {
@@ -219,14 +231,13 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 } else {
                     compareWords(guessedWord, currentLineBoxes)
+                    moveToNextLine()
                 }
-                currentLine++
-                moveToNextLine()
             }
         }
 
         // Checks if guessed word is a word in the list
-        fun checkWordList(guessedWord : String) : Boolean {
+        private fun checkWordList(guessedWord : String) : Boolean {
             var isInList = false
             for (word in WORDLIST) {
                 if (word == guessedWord) {
@@ -236,53 +247,59 @@ class MainActivity : AppCompatActivity() {
             return isInList
         }
 
-        fun moveToNextLine() {
-            GUESSBOXES.forEachIndexed { index, editText ->
-                when (currentLine) {
-                    1 -> {
-                        GUESSBOXES[index].isFocusable = index in 0..4
-                    }
-                    2 -> {
-                        GUESSBOXES[index].isFocusable = index in 5..9
-                    }
-                    3 -> {
-                        GUESSBOXES[index].isFocusable = index in 10..14
-                    }
-                    4 -> {
-                        GUESSBOXES[index].isFocusable = index in 15..19
-                    }
-                    5 -> {
-                        GUESSBOXES[index].isFocusable = index in 20..24
-                    }
-                    6 -> {
-                        GUESSBOXES[index].isFocusable = index in 25..29
-                    }
-                }
-            }
+        private fun moveToNextLine() {
+            currentLine++
+            Log.i("STATUS_LINE", "Current line: $currentLine")
+//            GUESSBOXES.forEachIndexed { index, editText ->
+//                when (currentLine) {
+//                    1 -> {
+//                        GUESSBOXES[index].isFocusable = index in 0..4
+//                    }
+//                    2 -> {
+//                        GUESSBOXES[index].isFocusable = index in 5..9
+//                    }
+//                    3 -> {
+//                        GUESSBOXES[index].isFocusable = index in 10..14
+//                    }
+//                    4 -> {
+//                        GUESSBOXES[index].isFocusable = index in 15..19
+//                    }
+//                    5 -> {
+//                        GUESSBOXES[index].isFocusable = index in 20..24
+//                    }
+//                    6 -> {
+//                        GUESSBOXES[index].isFocusable = index in 25..29
+//                    }
+//                }
+//            }
         }
     }
 
-    // Compares guessed word with the correct answer
+    /*
+      Compares guessed letters to the letters in the correct word.
+      Background of edit text changes based on guess result.
+    */
     fun compareWords(guessedWord: String, currentLineBoxes : MutableList<EditText>) {
         guessedWord.forEachIndexed { index, char ->
+            // partial guess - letter is in word but not in correct position
+            // yellow or blue background, depending on preference
             if (char == randomWord[0] || char == randomWord[1] || char == randomWord[2]
                 || char == randomWord[3] || char == randomWord[4]) {
-                if (useAlternativeColors) {
-                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_blue)
-                } else {
-                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_yellow)
-                }
+                currentLineBoxes[index].background = partialGuess
+            } else {
+                // incorrect guess - letter is not in word
+                // gray background
+                currentLineBoxes[index].background = getDrawable(R.drawable.edit_text_bg_gray)
             }
+            // correct guess - letter is in word & in correct position
+            // green or orange background, depending on preference
             if (char == randomWord[index]) {
-                if (useAlternativeColors) {
-                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_orange)
-                } else {
-                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_green)
-                }
+                currentLineBoxes[index].background = correctGuess
             }
         }
     }
 
+    // Options menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
