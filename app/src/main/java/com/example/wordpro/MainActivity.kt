@@ -127,21 +127,20 @@ class MainActivity : AppCompatActivity() {
 
             // Gets the input from the user
             val sb = StringBuilder()
-            var guessedWord = ""
+            var guessedWord: String
             for (editText in currentLineBoxes) {
-                val input = editText.getText().toString().trim().lowercase(Locale.getDefault())
-                if (input.isEmpty()) {
-                    Toast.makeText(
-                        applicationContext,
-                        R.string.empty_field,
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else {
+                val input = editText.text.toString().trim().lowercase(Locale.getDefault())
+                if (input.isNotEmpty()) {
                     sb.append(input)
                 }
             }
-
-            if (sb.length == 5) {
+            if (sb.length < 5) {
+                Toast.makeText(
+                    applicationContext,
+                    R.string.empty_field,
+                    Toast.LENGTH_LONG
+                ).show()
+            } else if (sb.length == 5) {
                 guessedWord = sb.toString()
                 val isInList = checkWordList(guessedWord)
                 if (!isInList) {
