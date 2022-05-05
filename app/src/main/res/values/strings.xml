@@ -4,4 +4,11 @@
     <string name="english_alphabet">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="empty_field">A field is blank - must guess all five letters.</string>
     <string name="invalid_word">Not in word list</string>
+    <string name="about">About</string>
+    <string name="about_message"><b>App name:</b> Word Pro\n<b>Developer:</b> Will Stewart
+        \n\nCredit for app concept goes to <b>Josh Wardle</b>, the developer of the original
+        Wordle web game. This app is a recreation of the web game for Android.
+        \n\nThanks to Jason Chao on GitHub for providing the list of words (the same list used
+        in Wordle).
+    </string>
 </resources>
