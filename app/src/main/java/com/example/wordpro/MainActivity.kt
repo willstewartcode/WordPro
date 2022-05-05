@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         if (useLargeText) {
             setTextSize(24f)
         } else {
-            setTextSize(16f)
+            setTextSize(18f)
         }
     }
 
