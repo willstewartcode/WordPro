@@ -11,4 +11,6 @@
         \n\nThanks to Jason Chao on GitHub for providing the list of words (the same list used
         in Wordle).
     </string>
+    <string name="use_large_text">Use Large Text</string>
+    <string name="use_alternative_colors">Use Alternative Colors</string>
 </resources>
