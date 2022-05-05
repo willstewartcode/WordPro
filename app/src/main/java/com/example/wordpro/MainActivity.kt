@@ -180,10 +180,10 @@ class MainActivity : AppCompatActivity() {
             guessedWord.forEachIndexed { index, char ->
                 if (char == randomWord[0] || char == randomWord[1] || char == randomWord[2]
                     || char == randomWord[3] || char == randomWord[4]) {
-                    currentLineBoxes[index].setBackgroundColor(Color.YELLOW)
+                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_yellow)
                 }
                 if (char == randomWord[index]) {
-                    currentLineBoxes[index].setBackgroundColor(Color.GREEN)
+                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_green)
                 }
             }
         }
