@@ -17,14 +17,19 @@ class PreferencesActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeL
     }
 
     override fun onStart() {
-        super.onStart()
-
         val preferences = getSharedPreferences(
             getString(R.string.preferences_storage_name),
             Context.MODE_PRIVATE
         )
 
+        // Updates checkbox widgets to reflect preferences
+        val textSize = preferences.getBoolean(getString(R.string.text_size_key), false)
+        binding.largetextCheckbox.isChecked = textSize
 
+        val colorChoice = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
+        binding.useAlternativeColorsCheckbox.isChecked = colorChoice
+
+        super.onStart()
     }
 
     override fun onCheckedChanged(checkbox: CompoundButton?, isChecked: Boolean) {
