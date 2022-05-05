@@ -3,6 +3,7 @@ package com.example.wordpro
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -29,6 +30,8 @@ var currentLine = 1
 val WORDLIST = mutableListOf<String>()
 // random word chosen from list
 var randomWord = ""
+//
+var useAlternativeColors : Boolean = false
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -72,12 +75,18 @@ class MainActivity : AppCompatActivity() {
         )
 
         val useLargeText = preferences.getBoolean(getString(R.string.text_size_key), false)
-        val useAlternativeColors = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
+        useAlternativeColors = preferences.getBoolean(getString(R.string.alternative_colors_key), false)
 
         if (useLargeText) {
             setTextSize(24f)
         } else {
             setTextSize(18f)
+        }
+
+        if (useAlternativeColors) {
+            setColorScheme(getDrawable(R.drawable.edit_text_bg_blue), getDrawable(R.drawable.edit_text_bg_orange))
+        } else {
+            setColorScheme(getDrawable(R.drawable.edit_text_bg_yellow), getDrawable(R.drawable.edit_text_bg_green))
         }
     }
 
@@ -99,6 +108,18 @@ class MainActivity : AppCompatActivity() {
         )
         for (widget in widgets) {
             widget.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+        }
+    }
+
+    private fun setColorScheme(partialGuess : Drawable?, correctGuess : Drawable?) {
+        for (editText in GUESSBOXES) {
+            if (editText.background == getDrawable(R.drawable.edit_text_bg_yellow)
+                || editText.background == getDrawable(R.drawable.edit_text_bg_blue)) {
+                editText.background = partialGuess
+            } else if (editText.background == getDrawable(R.drawable.edit_text_bg_green)
+                || editText.background == getDrawable(R.drawable.edit_text_bg_orange)) {
+                editText.background = correctGuess
+            }
         }
     }
 
@@ -215,22 +236,6 @@ class MainActivity : AppCompatActivity() {
             return isInList
         }
 
-        // Compares guessed word with the correct answer
-        fun compareWords(guessedWord: String, currentLineBoxes : MutableList<EditText>) {
-//            for (editText in currentLineBoxes) {
-//                editText.setBackgroundColor(Color.WHITE)
-//            }
-            guessedWord.forEachIndexed { index, char ->
-                if (char == randomWord[0] || char == randomWord[1] || char == randomWord[2]
-                    || char == randomWord[3] || char == randomWord[4]) {
-                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_yellow)
-                }
-                if (char == randomWord[index]) {
-                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_green)
-                }
-            }
-        }
-
         fun moveToNextLine() {
             GUESSBOXES.forEachIndexed { index, editText ->
                 when (currentLine) {
@@ -252,6 +257,27 @@ class MainActivity : AppCompatActivity() {
                     6 -> {
                         GUESSBOXES[index].isFocusable = index in 25..29
                     }
+                }
+            }
+        }
+    }
+
+    // Compares guessed word with the correct answer
+    fun compareWords(guessedWord: String, currentLineBoxes : MutableList<EditText>) {
+        guessedWord.forEachIndexed { index, char ->
+            if (char == randomWord[0] || char == randomWord[1] || char == randomWord[2]
+                || char == randomWord[3] || char == randomWord[4]) {
+                if (useAlternativeColors) {
+                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_blue)
+                } else {
+                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_yellow)
+                }
+            }
+            if (char == randomWord[index]) {
+                if (useAlternativeColors) {
+                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_orange)
+                } else {
+                    currentLineBoxes[index].setBackgroundResource(R.drawable.edit_text_bg_green)
                 }
             }
         }

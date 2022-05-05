@@ -14,6 +14,7 @@ class PreferencesActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeL
         setContentView(binding.root)
 
         binding.largetextCheckbox.setOnCheckedChangeListener(this)
+        binding.useAlternativeColorsCheckbox.setOnCheckedChangeListener(this)
     }
 
     override fun onStart() {
