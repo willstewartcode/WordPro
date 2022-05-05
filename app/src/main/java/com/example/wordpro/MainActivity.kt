@@ -145,6 +145,7 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             } else if (sb.length == 5) {
                 guessedWord = sb.toString()
+                Log.i("STATUS_GUESS", "Guessed word: $guessedWord")
                 val isInList = checkWordList(guessedWord)
                 if (!isInList) {
                     Toast.makeText(
