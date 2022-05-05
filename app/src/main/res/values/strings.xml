@@ -18,4 +18,5 @@
     <string name="preferences_storage_name">app_preferences</string>
     <string name="text_size_key">text size</string>
     <string name="alternative_colors_key">alternative colors</string>
+    <string name="preferences">Preferences</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.wordpro
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -228,7 +229,12 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
             return true
+        } else if (item.itemId == R.id.preferences_menu_item) {
+            val intent = Intent(this, PreferencesActivity::class.java)
+            startActivity(intent)
+            return true
         }
+
         return super.onOptionsItemSelected(item)
     }
 }
