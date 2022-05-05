@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WordPro">
         <activity
+            android:name=".PreferencesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
