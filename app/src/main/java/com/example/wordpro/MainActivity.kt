@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.checkButton.setOnClickListener(CheckButtonListener())
 
+        binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
         Log.i("STATUS_LINE", "Current line: $currentLine")
     }
 
@@ -231,8 +232,11 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 } else {
                     compareWords(guessedWord, currentLineBoxes)
+                    currentLine++
+                    binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
                     moveToNextLine()
                 }
+
             }
         }
 
@@ -248,7 +252,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         private fun moveToNextLine() {
-            currentLine++
             Log.i("STATUS_LINE", "Current line: $currentLine")
 //            GUESSBOXES.forEachIndexed { index, editText ->
 //                when (currentLine) {

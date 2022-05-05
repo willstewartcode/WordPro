@@ -13,6 +13,7 @@
     </string>
     <string name="use_large_text">Use Large Text</string>
     <string name="use_alternative_colors">Use Alternative Colors</string>
+    <string name="number_of_attempts">Number of attempts: %d of 6</string>
 
     <!-- Preferences keys -->
     <string name="preferences_storage_name">app_preferences</string>
