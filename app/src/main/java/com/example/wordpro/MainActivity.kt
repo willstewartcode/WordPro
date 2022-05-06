@@ -350,6 +350,7 @@ class MainActivity : AppCompatActivity() {
             editText.background = getDrawable(R.drawable.edit_text_border)
         }
         currentLine = 1
+        binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
         randomWord = WORDLIST.random()
         Log.i("STATUS_RANDOM_WORD", "Random word: $randomWord")
         moveToNextLine()
