@@ -250,7 +250,11 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         currentLine++
                         binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
-                        moveToNextLine()
+                        if (currentLine > 6) {
+                            displayEndMessage(false)
+                        } else {
+                            moveToNextLine()
+                        }
                     }
                 }
             }
