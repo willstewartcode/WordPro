@@ -31,7 +31,6 @@ var randomWord = ""
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    //
     private lateinit var partialGuess: Drawable
     private lateinit var correctGuess: Drawable
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +89,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (useAlternativeColors) {
-            //partialGuess = getDrawable(R.drawable.edit_text_bg_blue)!!
             partialGuess = AppCompatResources.getDrawable(applicationContext, R.drawable.edit_text_bg_blue)!!
             correctGuess = AppCompatResources.getDrawable(applicationContext, R.drawable.edit_text_bg_orange)!!
         } else {
