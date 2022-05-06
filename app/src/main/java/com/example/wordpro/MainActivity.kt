@@ -239,7 +239,7 @@ class MainActivity : AppCompatActivity() {
                             editText.isFocusable = false
                             editText.isFocusableInTouchMode = false
                         }
-                        displayWinMessage()
+                        displayEndMessage(true)
                     } else {
                         currentLine++
                         binding.numberOfAttemptsTextview.text = getString(R.string.number_of_attempts, currentLine - 1)
@@ -320,7 +320,10 @@ class MainActivity : AppCompatActivity() {
         return correctLetters
     }
 
-    fun displayWinMessage() {
+    /**
+     * @param result Either win or lose. True = win, False = lose
+     */
+    fun displayEndMessage(result: Boolean) {
         val listener = DialogInterface.OnClickListener { dialog, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 resetGame()
@@ -328,10 +331,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         val builder = AlertDialog.Builder(binding.root.context)
-        builder
-            .setTitle("Win")
-            .setMessage("win message")
-            .setPositiveButton(android.R.string.ok, listener)
+        if (result) {
+            builder
+                .setTitle("Win")
+                .setMessage("win message")
+        } else {
+            builder
+                .setTitle("Lose")
+                .setMessage("lose message")
+        }
+            .setPositiveButton(R.string.reset, listener)
             .show()
     }
 
