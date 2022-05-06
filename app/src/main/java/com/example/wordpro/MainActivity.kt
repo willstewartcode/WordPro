@@ -350,7 +350,6 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("You got it!")
                 .setMessage("Click \"Reset\" to play again.")
             gamesWon++
-            writeData()
         } else {
             // do this on loss
             builder
@@ -360,6 +359,7 @@ class MainActivity : AppCompatActivity() {
             builder
                 .setPositiveButton(R.string.reset, listener)
                 .show()
+        writeData()
     }
 
     fun writeData() {
