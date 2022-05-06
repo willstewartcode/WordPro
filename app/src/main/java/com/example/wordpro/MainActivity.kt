@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.addTextChangedListener
 import com.example.wordpro.databinding.ActivityMainBinding
+import java.io.PrintWriter
 import java.util.*
 
 // Array that holds all of the edit texts that users put guesses into
@@ -28,6 +29,12 @@ var currentLine = 1
 val WORDLIST = mutableListOf<String>()
 // random word chosen from list
 var randomWord = ""
+// File that keeps track of stats
+const val STATSFILE = "stats.txt"
+// total number of games played
+var gamesPlayed = 0
+// total number of games won
+var gamesWon = 0
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -231,7 +238,9 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
+                    // Checks the guesses
                     val correctLetters = compareWords(guessedWord, currentLineBoxes)
+                    // If all 5 letters are correct
                     if (correctLetters == 5) {
                         for (editText in currentLineBoxes) {
                             editText.isFocusable = false
@@ -328,18 +337,35 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        gamesPlayed++
+
         val builder = AlertDialog.Builder(binding.root.context)
         if (result) {
+            // do this on win
             builder
                 .setTitle("You got it!")
                 .setMessage("Click \"Reset\" to play again.")
+            gamesWon++
+            writeData()
         } else {
+            // do this on loss
             builder
                 .setTitle("Out of attempts.")
                 .setMessage("Click \"Reset\" to start again.")
         }
-            .setPositiveButton(R.string.reset, listener)
-            .show()
+            builder
+                .setPositiveButton(R.string.reset, listener)
+                .show()
+    }
+
+    fun writeData() {
+        val bw = openFileOutput(STATSFILE, MODE_PRIVATE).bufferedWriter()
+        PrintWriter(bw).use {
+            it.println(gamesPlayed)
+            Log.i("STATUS_DATA", "Written to stats file: Games played ($gamesPlayed)")
+            it.println(gamesWon)
+            Log.i("STATUS_DATA", "Written to stats file: Games won ($gamesWon)")
+        }
     }
 
     private fun resetGame() {
