@@ -333,12 +333,12 @@ class MainActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(binding.root.context)
         if (result) {
             builder
-                .setTitle("Win")
-                .setMessage("win message")
+                .setTitle("You got it!")
+                .setMessage("Click \"Reset\" to play again.")
         } else {
             builder
-                .setTitle("Lose")
-                .setMessage("lose message")
+                .setTitle("Out of attempts.")
+                .setMessage("Click \"Reset\" to start again.")
         }
             .setPositiveButton(R.string.reset, listener)
             .show()
